@@ -1,0 +1,21 @@
+.btn {
+  padding: 1.25rem 3.75rem;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 0.5rem;
+
+  &__orange {
+    background-color: #f56e1e;
+  }
+  &__transparent {
+    border-color: #ffffff;
+  }
+  &__blue {
+    background-color: #143bc2;
+  }
+  &__white {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}

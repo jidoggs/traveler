@@ -1,0 +1,45 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@400;500;600;700&display=swap');
+* {
+  // background-color: red;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  color: inherit;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+@import url("//at.alicdn.com/t/font_3202635_4zff47w8nh6.css");
+
+@import"./partials/typogrphy.scss";
+@import "./compnents/button/button.scss";
+@import "./compnents/forms/inputs.scss";
+@import "./compnents/hero/hero.scss";
+@import "./compnents/layout/index.scss";
+
+.hambuger {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+  background-color: red;
+  display: none;
+}
+// .searchBox {
+//   // background-color: yellowgreen;
+//   padding: 1rem 4rem 1rem 1rem;
+//   position: relative;
+//   // padding: 6px 50px 6px 24px;
+
+//   // .search{
+
+//   // }
+
+//   button {
+//     position: absolute;
+//     right: 1.5rem;
+//     top: 1rem;
+//   }
+// }
