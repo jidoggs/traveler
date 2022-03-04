@@ -4,15 +4,27 @@
   background-color: transparent;
   color: #ffffff;
   border-radius: 0.5rem;
+  cursor: pointer;
 
   &__orange {
     background-color: #f56e1e;
+    &:hover{
+      border-color: #f56e1e;
+      color: #f56e1e;
+      background-color: #ffffff;
+    }
   }
   &__transparent {
     border-color: #ffffff;
+    
+    &:hover{
+      background-color: #f56e1e;
+
+    }
   }
   &__blue {
     background-color: #143bc2;
+
   }
   &__white {
     background-color: #ffffff;

@@ -24,7 +24,7 @@ function CustomButton({ type, text, onClick, className }) {
 
     case "BLUE":
       template = (
-        <button className={`btn btn__blue ${className}`} onClick={onClick}>
+        <button className={`btn btn__blue ${className}`} onClick={onClick} type="submit" >
           {text}
         </button>
       );

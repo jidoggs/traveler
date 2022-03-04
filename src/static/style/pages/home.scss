@@ -1,0 +1,25 @@
+.carousel .carousel-status {
+    bottom: 0;
+    left: 0;
+    right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+.carousel-root{
+    position: relative;
+
+    & > .carousel:last-child{
+        position: absolute;
+        bottom: 0;
+        .thumbs-wrapper{
+            margin: 0;
+        }
+        .thumbs{
+            display: inline;
+            // width: fit-content;
+            // margin: 0;
+        }
+    }
+}

@@ -1,13 +1,13 @@
 import React from "react";
-import Bookings from "../../../component/elements/Bookings";
-import Hero from "../../../component/elements/Hero";
+import Bookings from "./components/Bookings";
+import Hero from "../../../../component/elements/Hero";
 
 function Home() {
   return (
     <>
       <Hero type={"HOME"} />
       <Bookings />
-      Home
+      {/* Home */}
     </>
   );
 }
