@@ -43,7 +43,7 @@ function BookDestinationForm() {
   };
 
   return (
-    <form style={{ padding: "3rem" }} onSubmit={submitFormHandler}>
+    <form className="booking__form" style={{ padding: "3rem" }} onSubmit={submitFormHandler}>
       <h2 className="formTitle">Find Your Stay</h2>
       <label htmlFor="location"></label>
       <input

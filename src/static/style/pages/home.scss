@@ -12,14 +12,36 @@
 
     & > .carousel:last-child{
         position: absolute;
-        bottom: 0;
+        bottom: 13px;
+        left: 30px;
         .thumbs-wrapper{
+            width: fit-content;
             margin: 0;
+            padding: 5px 30px 5px 12px;
+            background-color: #fff;
+            border-radius: 20px;
         }
-        .thumbs{
-            display: inline;
+        .thumb{
+            // display: inline;
             // width: fit-content;
             // margin: 0;
+            // border-radius: 20px;
         }
+    }
+}
+
+.booking{
+    padding-top: 5.5rem;
+
+    background-color: #fff;
+    display: flex;
+
+    &__form{
+        flex: 1;
+    }
+    &__slides{
+        flex: 2;
+        border-radius: 8px;
+        overflow: hidden;
     }
 }

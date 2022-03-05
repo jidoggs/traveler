@@ -7,6 +7,8 @@ function Home() {
     <>
       <Hero type={"HOME"} />
       <Bookings />
+      
+
       {/* Home */}
     </>
   );

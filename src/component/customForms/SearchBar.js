@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SearchLocationInput from "./PlacesAutoComplete";
 
 function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -10,22 +11,26 @@ function SearchBar() {
     }
     setSearchQuery("");
   };
+  const onChangeHandler = (e) => { setSearchQuery(e.target.value) }
+
+  console.log(searchQuery)
+
+  const props = {
+    className: "search",
+    type: "search",
+    name: "travelerSearch",
+    id: "travelerSearch",
+    placeholder: "Search recreation centers, flight...",
+  };
+
+
   return (
     <form
       className="header__navigation--search header__searchBox searchBox  "
       onSubmit={searchSubmitHandler}
     >
       <label htmlFor="travelerSearch"></label>
-      <input
-        //   className="w-20"
-        className="search"
-        type="search"
-        name="travelerSearch"
-        id="travelerSearch"
-        value={searchQuery}
-        placeholder="Search recreation centers, flight..."
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
+      <SearchLocationInput moreProps={props} value={searchQuery} onChangeHandler={onChangeHandler} setSearchQuery={setSearchQuery} />
       <button type="submit">
         <span className="iconfont icon-search"></span>
       </button>
