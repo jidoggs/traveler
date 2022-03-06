@@ -17,7 +17,7 @@
     &__main{
         grid-column: 1/-1;
         grid-row: 1/3;
-        background-color: red;
+        // background-color: red;
         z-index: 0;
 
         display: grid;
@@ -25,6 +25,6 @@
     &__footer{
         grid-column: 1/-1;
         grid-row: 3/4;
-        background-color: yellowgreen;
+        // background-color: yellowgreen;
     }
 }

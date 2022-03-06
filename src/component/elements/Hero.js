@@ -56,9 +56,9 @@ function Hero({ type }) {
       break;
   }
   return (
-    <div className={`hero hero__${checkLocation(location.pathname)}`}>
+    <section role={"region"} className={`hero hero__${checkLocation(location.pathname)}`}>
       {template}
-    </div>
+    </section>
   );
 }
 

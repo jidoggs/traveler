@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import CustomButton from "../customButtons/CustomButton";
 
 import "react-datepicker/dist/react-datepicker.css";
+import SearchLocationInput from "./PlacesAutoComplete";
+import axios from "axios";
+import Calendar from "../customIcons/Calendar";
+import Location from "../customIcons/Location";
+import Family from "../customIcons/Family";
 
 function BookDestinationForm() {
   const initialState = {
     location: "",
     check: {
-      in: new Date(),
-      out: new Date(),
+      in: "",
+      out: "",
     },
     passangers: {
       adult: 0,
@@ -20,6 +25,23 @@ function BookDestinationForm() {
   const userCountOptions = [0, 1, 2, 3, 4, 5, 6];
 
   const [booking, setBooking] = useState(initialState);
+  const [rapid, setrapid] = useState([]);
+
+  var options = {
+    // method: "GET",
+    // url: "https://mimmofranco.herokuapp.com/https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete",
+    // params: { query: "eiffel tower", lang: "en_US", units: "km" },
+    // headers: {
+    //   "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
+    //   'x-rapidapi-key': '18400156e4mshc1f3c9773a6e009p185fd6jsn26c4eddf1225'
+    // },
+  };
+  useEffect(() => {
+    axios
+      .request(options)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }, []);
 
   const locationChangeHandler = (e) => {
     setBooking((prev) => ({ ...prev, location: e.target.value }));
@@ -42,18 +64,37 @@ function BookDestinationForm() {
     console.log(booking);
   };
 
+  const props = {
+    type: "text",
+    name: "location",
+    id: "location",
+    placeholder: "where do you want to go",
+  };
+
   return (
-    <form className="booking__form" style={{ padding: "3rem" }} onSubmit={submitFormHandler}>
+    <form
+      
+      // style={{ padding: "3rem" }}
+      onSubmit={submitFormHandler}
+    >
       <h2 className="formTitle">Find Your Stay</h2>
       <label htmlFor="location"></label>
-      <input
+      {/* <input
         type="text"
         name="location"
         id="location"
         placeholder="where do you want to go"
         onChange={locationChangeHandler}
+      /> */}
+      <div className="searchInput">
+        <Location className="formIcon" />
+      <SearchLocationInput
+        onChangeHandler={locationChangeHandler}
+        value={booking.location}
       />
+        </div>
       <div className="checkout" role={"group"}>
+        <Calendar className="formIcon" />
         <ReactDatePicker
           selected={booking.check.in}
           onChange={(date) =>
@@ -62,9 +103,11 @@ function BookDestinationForm() {
               check: { ...prev.check, in: date },
             }))
           }
-        />
+          placeholderText="Check-in"
+          />
         <ReactDatePicker
           selected={booking.check.out}
+          placeholderText="Check-out"
           onChange={(date) =>
             setBooking((prev) => ({
               ...prev,
@@ -74,6 +117,7 @@ function BookDestinationForm() {
         />
       </div>
       <div role={"group"} className="checkout">
+        <Family className="formIcon" />
         <label htmlFor="adult"></label>
         <select
           name="adult"
