@@ -15,7 +15,7 @@ function Bookings() {
   
 
   return (
-    <section role={"region"} className="booking" >
+    <section  className="booking" >
       <div className="booking__form">
 
       <BookDestinationForm />
@@ -30,16 +30,16 @@ function Bookings() {
       showStatus={false}
       >
         <div>
-          <img src="https://picsum.photos/id/100/640/426" />
+          <img src="https://picsum.photos/id/100/640/426" alt="destination" />
         </div>
         <div>
-          <img src="https://picsum.photos/id/1011/640/426" />
+          <img src="https://picsum.photos/id/1011/640/426" alt="destination" />
         </div>
         <div>
-          <img src="https://picsum.photos/id/1043/640/426" />
+          <img src="https://picsum.photos/id/1043/640/426" alt="destination" />
         </div>
         <div>
-          <img src="https://picsum.photos/id/164/640/426" />
+          <img src="https://picsum.photos/id/164/640/426" alt="destination" />
         </div>
       </Carousel>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 function PopularHotels() {
   return (
-    <section className="home__hotels" aria-label={"homeHotels"} role={"region"}>
+    <section className="home__hotels" aria-label={"homeHotels"} >
       <header>
         <h2>Popular Hotels</h2>
       </header>

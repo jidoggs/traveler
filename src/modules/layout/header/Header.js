@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import { NavLink } from "react-router-dom";
 // import SearchLocationInput from "../../../component/customForms/PlacesAutoComplete";
 // import SearchBar from "../../../component/customForms/SearchBar";

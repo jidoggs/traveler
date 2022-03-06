@@ -25,7 +25,7 @@ function BookDestinationForm() {
   const userCountOptions = [0, 1, 2, 3, 4, 5, 6];
 
   const [booking, setBooking] = useState(initialState);
-  const [rapid, setrapid] = useState([]);
+  // const [rapid, setrapid] = useState([]);
 
   var options = {
     // method: "GET",
@@ -41,7 +41,7 @@ function BookDestinationForm() {
       .request(options)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-  }, []);
+  }, []);// eslint-disable-line
 
   const locationChangeHandler = (e) => {
     setBooking((prev) => ({ ...prev, location: e.target.value }));
@@ -90,7 +90,9 @@ function BookDestinationForm() {
         <Location className="formIcon" />
       <SearchLocationInput
         onChangeHandler={locationChangeHandler}
+        placeholder= "where do you want to go"
         value={booking.location}
+        {...props}
       />
         </div>
       <div className="checkout" role={"group"}>
