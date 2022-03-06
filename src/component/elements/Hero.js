@@ -2,23 +2,14 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import HomeHeroCards from "../cards/HomeHeroCards";
 import CustomButton from "../customButtons/CustomButton";
+import { checkLocation } from "../helper/helperFunction";
 
 function Hero({ type }) {
   const location = useLocation();
   //   console.log(location);
   let template;
 
-  function checkLocation(params) {
-    if (params === "/") {
-      return "home";
-    }
-    if (params === "/hotels") {
-      return "hotels";
-    }
-    if (params === "/weather") {
-      return "weather";
-    }
-  }
+  
 
   switch (type) {
     case "HOME":

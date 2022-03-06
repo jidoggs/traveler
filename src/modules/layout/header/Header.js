@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 // import SearchBar from "../../../component/customForms/SearchBar";
 import Logo from "../../../component/customIcons/Logo";
 
-function Header({ className }) {
+function Header({ className, headerRef }) {
   const [hideNav, setHideNav] = useState(true);
 
   const toggleSideNav = () => {
@@ -12,7 +12,8 @@ function Header({ className }) {
   };
 
   return (
-    <header className={` ${className} header   bg-green-400`}>
+    <header ref={headerRef} className={` ${className}`}>
+      <div className="header" >
       <Logo className={"header__logo "} />
       <nav className="header__navigation   bg-slate-400 grow  flex flex-row-reverse ">
         <span
@@ -41,6 +42,7 @@ function Header({ className }) {
           </li>
         </ul>
       </nav>
+      </div>
     </header>
   );
 }
