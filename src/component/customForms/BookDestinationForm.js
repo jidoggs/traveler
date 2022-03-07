@@ -92,7 +92,7 @@ function BookDestinationForm() {
         onChangeHandler={locationChangeHandler}
         placeholder= "where do you want to go"
         value={booking.location}
-        {...props}
+        moreProps={props}
       />
         </div>
       <div className="checkout" role={"group"}>

@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { NavLink } from "react-router-dom";
+import SearchBar from "../../../component/customForms/SearchBar";
 // import SearchLocationInput from "../../../component/customForms/PlacesAutoComplete";
 // import SearchBar from "../../../component/customForms/SearchBar";
 import Logo from "../../../component/customIcons/Logo";
@@ -15,7 +16,7 @@ function Header({ className, headerRef }) {
     <header ref={headerRef} className={` ${className}`}>
       <div className="header" >
       <Logo className={"header__logo "} />
-      <nav className="header__navigation   bg-slate-400 grow  flex flex-row-reverse ">
+      <nav className="header__navigation">
         <span
           className={`hambuger ${!hideNav ? "showSideNav" : ""} grow `}
           onClick={toggleSideNav}
@@ -26,21 +27,19 @@ function Header({ className, headerRef }) {
           }  `}
         >
           <li className="header__navigation--link_item">
-            <NavLink to={"/recreationCenters"}>Recreation Centers</NavLink>
+            <NavLink to={"/attractions"}>Attractions</NavLink>
           </li>
           <li className="header__navigation--link_item">
-            <NavLink to={"/weather"}>Weather</NavLink>
+            <NavLink to={"/cars"}>Car Rentals</NavLink>
           </li>
           <li className="header__navigation--link_item">
             <NavLink to={"/hotels"}>Hotels</NavLink>
           </li>
           <li className="header__navigation--link_item">
-            <NavLink to={"/rentals"}>Car Rentals</NavLink>
-          </li>
-          <li className="header__navigation--link_item">
-            <NavLink to={"/traveladvice"}>Travel Advice</NavLink>
+            <NavLink to={"/restaurants"}>Restaurants</NavLink>
           </li>
         </ul>
+        <SearchBar/>
       </nav>
       </div>
     </header>

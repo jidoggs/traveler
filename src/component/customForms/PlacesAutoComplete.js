@@ -47,7 +47,8 @@ function SearchLocationInput({onChangeHandler,setSearchQuery, moreProps, value})
     loadScript(
     //   `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`,
       `https://maps.googleapis.com/maps/api/js?key=${'AIzaSyABOw2OSIg3W6jl29QlcsOYYl-6qVXgsls'}&libraries=places`,
-      () => handleScriptLoad(setSearchQuery(), autoCompleteRef)
+      
+      () => handleScriptLoad(setSearchQuery, autoCompleteRef)
     );
   }, [setSearchQuery]);
 

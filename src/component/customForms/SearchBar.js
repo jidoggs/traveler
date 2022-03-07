@@ -13,14 +13,14 @@ function SearchBar() {
   };
   const onChangeHandler = (e) => { setSearchQuery(e.target.value) }
 
-  console.log(searchQuery)
+  // console.log(searchQuery)
 
   const props = {
     className: "search",
     type: "search",
     name: "travelerSearch",
     id: "travelerSearch",
-    placeholder: "Search recreation centers, flight...",
+    placeholder: "Search the World . . . ",
   };
 
 
