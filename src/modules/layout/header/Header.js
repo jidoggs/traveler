@@ -5,7 +5,7 @@ import SearchBar from "../../../component/customForms/SearchBar";
 // import SearchBar from "../../../component/customForms/SearchBar";
 import Logo from "../../../component/customIcons/Logo";
 
-function Header({ className, headerRef }) {
+function Header({ className }) {
   const [hideNav, setHideNav] = useState(true);
 
   const toggleSideNav = () => {
@@ -13,7 +13,7 @@ function Header({ className, headerRef }) {
   };
 
   return (
-    <header ref={headerRef} className={` ${className}`}>
+    <header  className={` ${className}`}>
       <div className="header" >
       <Logo className={"header__logo "} />
       <nav className="header__navigation">
