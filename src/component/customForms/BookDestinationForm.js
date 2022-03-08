@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import CustomButton from "../customButtons/CustomButton";
 
 import "react-datepicker/dist/react-datepicker.css";
-import SearchLocationInput from "./PlacesAutoComplete";
-import axios from "axios";
+import PlacesAutocomplete from "./PlacesAutocomplete";
+import usePlacesAutocomplete from "use-places-autocomplete";
+// import axios from "axios";
 import Calendar from "../customIcons/Calendar";
 import Location from "../customIcons/Location";
 import Family from "../customIcons/Family";
@@ -25,27 +26,45 @@ function BookDestinationForm() {
   const userCountOptions = [0, 1, 2, 3, 4, 5, 6];
 
   const [booking, setBooking] = useState(initialState);
+
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+  } = usePlacesAutocomplete();
+
+  const handleSelect = (val) => {
+    setValue(val, false);
+    setBooking((prev) => ({ ...prev, location: val }));
+    // diapatch(inputingSearch(val));
+    // navigate(`/search-result`);
+  };
+  const handleInput = (e) => {
+    setValue(e.target.value);
+  };
+
   // const [rapid, setrapid] = useState([]);
 
-  var options = {
-    // method: "GET",
-    // url: "https://mimmofranco.herokuapp.com/https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete",
-    // params: { query: "eiffel tower", lang: "en_US", units: "km" },
-    // headers: {
-    //   "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-    //   'x-rapidapi-key': '18400156e4mshc1f3c9773a6e009p185fd6jsn26c4eddf1225'
-    // },
-  };
-  useEffect(() => {
-    axios
-      .request(options)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }, []);// eslint-disable-line
+  // var options = {
+  //   // method: "GET",
+  //   // url: "https://mimmofranco.herokuapp.com/https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete",
+  //   // params: { query: "eiffel tower", lang: "en_US", units: "km" },
+  //   // headers: {
+  //   //   "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
+  //   //   'x-rapidapi-key': '18400156e4mshc1f3c9773a6e009p185fd6jsn26c4eddf1225'
+  //   // },
+  // };
+  // useEffect(() => {
+  //   axios
+  //     .request("options")
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err));
+  // }, []);// eslint-disable-line
 
-  const locationChangeHandler = (e) => {
-    setBooking((prev) => ({ ...prev, location: e.target.value }));
-  };
+  // const locationChangeHandler = (e) => {
+  //   setBooking((prev) => ({ ...prev, location: e.target.value }));
+  // };
   const passangerAdultChangeHadler = (e) => {
     setBooking((prev) => ({
       ...prev,
@@ -73,7 +92,6 @@ function BookDestinationForm() {
 
   return (
     <form
-      
       // style={{ padding: "3rem" }}
       onSubmit={submitFormHandler}
     >
@@ -88,13 +106,16 @@ function BookDestinationForm() {
       /> */}
       <div className="searchInput">
         <Location className="formIcon" />
-      <SearchLocationInput
-        onChangeHandler={locationChangeHandler}
-        placeholder= "where do you want to go"
-        value={booking.location}
-        moreProps={props}
-      />
-        </div>
+        <PlacesAutocomplete
+          moreProps={props}
+          handleSelect={handleSelect}
+          handleInput={handleInput}
+          status={status}
+          data={data}
+          value={value}
+          ready={ready}
+        />
+      </div>
       <div className="checkout" role={"group"}>
         <Calendar className="formIcon" />
         <ReactDatePicker
@@ -106,7 +127,7 @@ function BookDestinationForm() {
             }))
           }
           placeholderText="Check-in"
-          />
+        />
         <ReactDatePicker
           selected={booking.check.out}
           placeholderText="Check-out"
