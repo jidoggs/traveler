@@ -26,7 +26,7 @@ function Layout() {
 
 
     return () => window.removeEventListener("scroll", changeHeaderBg);
-  }, [headerPosition]);
+  }, [pathname]);
 
 
   return (
