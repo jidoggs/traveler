@@ -1,0 +1,53 @@
+.hero__card {
+    display: grid;
+    grid-template-columns: 1rem max-content 1rem;
+    grid-template-rows: 1.875rem max-content 0.5rem max-content 0.5rem max-content 1.875rem;
+    box-shadow: 4px 4px 22px 5px #0000001a;
+    background-color: #fff;
+    grid-row: 2/3;
+    border-radius: 0.5rem;
+
+    &--title,
+    &--body,
+    &--price {
+      grid-column: 2/3;
+    }
+    &--title {
+      grid-row: 2/3;
+    }
+    &--body {
+      grid-row: 4/5;
+    }
+    &--price {
+      grid-row: 6/7;
+    }
+  }
+
+  .home__hotel{
+      &-card{
+          display: flex;
+          border-radius: 1rem;
+        overflow: hidden;
+      }
+      &-img{
+          flex: 2;
+        }
+        &-text{
+          flex: 1;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          &--title{
+            font-size: 1em;
+          }
+          &--price{
+              font-size: xx-large;
+              align-self: center;
+          }
+
+          &--btn{
+              padding: 1rem;
+          }
+      }
+  }

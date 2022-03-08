@@ -148,10 +148,16 @@
         grid-row: 2/3;
         display: flex;
         justify-content: space-between;
+        column-gap: 1.5rem;
+        margin-top: 1rem;
         div{
-            width: 380px;
-            height: 212px;
-            background-color: yellow;
+          flex: 1;
+          background-size: cover;
+          background-position: center;
+            height: 14rem;
+            background-color: #fff;
+            box-shadow: 4px 4px 22px 5px #0000001A;
+
         }
     }
 }

@@ -26,6 +26,7 @@ function HomeHeroCards() {
           const { title, body, price } = card;
           return (
             <CardsTemplate
+              id={idx}
               key={idx}
               type="HOME_HERO"
               body={body}
