@@ -1,20 +1,11 @@
-import React, { useState } from "react";
-import SearchLocationInput from "./PlacesAutoComplete";
+import React from "react";
+import PlacesAutocomplete from "./PlacesAutocomplete";
+import usePlacesAutocomplete from "use-places-autocomplete";
+import { useDispatch } from "react-redux";
+import { inputingSearch } from "../../redux/actions/searchActions";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const searchSubmitHandler = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim() !== "") {
-      console.log(searchQuery);
-    }
-    setSearchQuery("");
-  };
-  const onChangeHandler = (e) => { setSearchQuery(e.target.value) }
-
-  // console.log(searchQuery)
-
   const props = {
     className: "search",
     type: "search",
@@ -23,14 +14,38 @@ function SearchBar() {
     placeholder: "Search the World . . . ",
   };
 
+  const diapatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+  } = usePlacesAutocomplete();
+
+  const handleSelect = (val) => {
+    setValue(val, false);
+    diapatch(inputingSearch(val));
+    navigate(`/search-result`);
+    setValue("");
+  };
+  const handleInput = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
-    <form
-      className="header__navigation--search header__searchBox searchBox  "
-      onSubmit={searchSubmitHandler}
-    >
+    <form className="header__navigation--search header__searchBox searchBox  ">
       <label htmlFor="travelerSearch"></label>
-      <SearchLocationInput moreProps={props} value={searchQuery} onChangeHandler={onChangeHandler} setSearchQuery={setSearchQuery} />
+      <PlacesAutocomplete
+        moreProps={props}
+        handleSelect={handleSelect}
+        handleInput={handleInput}
+        status={status}
+        data={data}
+        value={value}
+        ready={ready}
+      />
       <button type="submit">
         <span className="iconfont icon-search"></span>
       </button>
