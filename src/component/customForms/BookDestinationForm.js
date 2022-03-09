@@ -3,7 +3,7 @@ import ReactDatePicker from "react-datepicker";
 import CustomButton from "../customButtons/CustomButton";
 
 import "react-datepicker/dist/react-datepicker.css";
-import PlacesAutocomplete from "./PlacesAutocomplete";
+import PlacesAutocomplete from "./component/PlacesAutocomplete";
 import usePlacesAutocomplete from "use-places-autocomplete";
 // import axios from "axios";
 import Calendar from "../customIcons/Calendar";

@@ -1,5 +1,5 @@
 import React from "react";
-import PlacesAutocomplete from "./PlacesAutocomplete";
+import PlacesAutocomplete from "./component/PlacesAutocomplete";
 import usePlacesAutocomplete from "use-places-autocomplete";
 import { useDispatch } from "react-redux";
 import { inputingSearch } from "../../redux/actions/searchActions";
