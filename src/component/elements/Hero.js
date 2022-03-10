@@ -6,10 +6,7 @@ import { checkLocation } from "../helper/helperFunction";
 
 function Hero({ type }) {
   const location = useLocation();
-  //   console.log(location);
   let template;
-
-  
 
   switch (type) {
     case "HOME":

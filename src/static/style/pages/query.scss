@@ -1,0 +1,81 @@
+.hero__query {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: screen;
+  &--text {
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, black);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 30vh max-content 7rem 40vh;
+    place-content: end;
+
+    &_title,
+    &_sub,
+    &_body {
+      color: #fff;
+      grid-column: 2/-2;
+    }
+    &_title {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      grid-row: 2/3;
+    }
+    &_sub {
+      grid-row: 3/4;
+    }
+    &_body {
+      font-weight: initial;
+      margin-bottom: 1rem;
+      grid-row: 4/5;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+
+      &-1 {
+        justify-self: end;
+        align-self: flex-end;
+      }
+      &-1 {
+        justify-self: end;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  h1,
+  p {
+    color: #fff;
+    grid-column: 2/-2;
+  }
+}
+
+.cardContainer {
+  display: flex;
+  column-gap: 1rem;
+  height: max-content;
+  overflow: hidden;
+  padding: 2rem 0;
+
+  &__text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    &-title,
+    &-body {
+      margin-bottom: 1rem;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+  &__cards {
+    flex: 3;
+    display: flex;
+    column-gap: 1rem;
+    overflow-x: scroll;
+    padding: 1rem 0;
+  }
+}

@@ -22,6 +22,7 @@
 @import "./compnents/layout/index.scss";
 
 @import "./pages/home.scss";
+@import "./pages/query.scss";
 
 .hambuger {
   display: block;
@@ -29,6 +30,9 @@
   height: 1.125rem;
   background-color: red;
   display: none;
+}
+.stars{
+  color: gold;
 }
 // .searchBox {
 //   // background-color: yellowgreen;

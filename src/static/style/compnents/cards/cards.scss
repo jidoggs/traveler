@@ -51,3 +51,51 @@
           }
       }
   }
+
+
+
+.queryCards{
+  display: grid;
+  grid-template-columns: 50px 12fr 50px;
+  padding: 2rem 0;
+
+  &-title,
+  &-cards{
+    grid-column: 2/-2;
+  }
+
+ 
+}
+
+.card{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 8px 0px #0000001A;
+
+
+  &__image{
+    background-color: #c0c0c0;
+    width: 100%;
+    min-width: 280px;
+    max-width: 100%;
+    height: 200px;
+    // height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+  }
+  &__text{
+    padding: 1rem;
+    &-rating{
+      display: flex;
+      align-items: center;
+    }
+    &-price{
+      font-weight: 600;
+    }
+  }
+}
