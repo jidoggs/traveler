@@ -1,0 +1,7 @@
+export const CORONA_INPUT = "CORONA_INPUT";
+export const CORONA_ERROR = "CORONA_ERROR";
+export const WEATHER_INPUT = "WEATHER_INPUT";
+export const WEATHER_ERROR = "WEATHER_ERROR";
+
+
+
