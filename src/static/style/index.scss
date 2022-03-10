@@ -34,6 +34,47 @@
 .stars{
   color: gold;
 }
+@keyframes scaleTop {
+  0% {
+      transform: scale(1.0);
+      left:0;
+      bottom:0;
+    }
+    50% {
+      left: 50vw;
+      bottom: 50vh;
+      transform: scale(10.0) ;
+  }
+    100% {
+      left: 95vw;
+      bottom: 100vh;
+      transform: scale(0.5) ;
+  }
+}
+.loading{
+  height: 100vh;
+  background-color: #f56e1e;
+  position: relative;
+  .textContainer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  p{
+    font-size: 3em;
+  }
+
+  .plane{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    path{
+      fill: #143bc2;
+    }
+    animation:  scaleTop 5s ease-in-out infinite ;
+  }
+}
 // .searchBox {
 //   // background-color: yellowgreen;
 //   padding: 1rem 4rem 1rem 1rem;
