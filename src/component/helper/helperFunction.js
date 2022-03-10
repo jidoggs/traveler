@@ -5,8 +5,11 @@ export function checkLocation(params) {
     if (params === "/hotels") {
       return "hotels";
     }
-    if (params === "/weather") {
-      return "weather";
+    if (params === "/attractions") {
+      return "attractions";
+    }
+    if (params === "/restaurants") {
+      return "restaurants";
     }
     if (params === "/search-result") {
       return "searchResult";

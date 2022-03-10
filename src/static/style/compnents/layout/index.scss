@@ -22,6 +22,8 @@
 
         display: grid;
 
+        &--attractions,
+        &--restaurants,
         &--hotels{
             grid-template-columns: 50px 12fr 50px;
         }
