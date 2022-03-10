@@ -39,7 +39,7 @@ function Resturant() {
       dispatch(errorResturants(error));
     });
     
-  }, [userlocation.longitude, userlocation.latitude])
+  }, [userlocation.longitude, userlocation.latitude]) // eslint-disable-line
   
   return <div className="hotelsPageContainer">
     {

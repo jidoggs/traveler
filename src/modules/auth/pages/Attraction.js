@@ -37,7 +37,7 @@ function Attraction() {
       dispatch(errorAttractions(error));
     });
     
-  }, [userlocation.longitude, userlocation.latitude])
+  }, [userlocation.longitude, userlocation.latitude]) // eslint-disable-line
   
   return <div className="hotelsPageContainer">
     {
