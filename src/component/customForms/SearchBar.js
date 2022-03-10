@@ -35,7 +35,7 @@ function SearchBar() {
   };
 
   return (
-    <form className="header__navigation--search header__searchBox searchBox" autocomplete="off">
+    <form className="header__navigation--search header__searchBox searchBox" autoComplete="off">
       <label htmlFor="travelerSearch"></label>
       <PlacesAutocomplete
         moreProps={props}

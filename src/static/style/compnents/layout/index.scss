@@ -21,6 +21,10 @@
         z-index: 0;
 
         display: grid;
+
+        &--hotels{
+            grid-template-columns: 50px 12fr 50px;
+        }
     }
     &__footer{
         grid-column: 1/-1;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function QueryCardTemplate({ type, bkImg, title, rating, cuisine, review }) {
+function QueryCardTemplate({ type, bkImg, title, rating, cuisine, review,price }) {
   let template;
   const capitalizeEachword = (sentence) => {
     return sentence
@@ -48,6 +48,27 @@ function QueryCardTemplate({ type, bkImg, title, rating, cuisine, review }) {
             </p>
             {review && (
               <p className="card__text-price">{`${review} reviews so far`}</p>
+            )}
+          </div>
+        </div>
+      );
+
+      break;
+    case "HOTELWITHPRICE":
+      template = (
+        <div className="card">
+          <div
+            className="card__image"
+            style={{ backgroundImage: `url(${bkImg})` }}
+          ></div>
+          <div className="card__text">
+            <h3 className="card__text-title">{title}</h3>
+            <p className="card__text-rating">
+              {" "}
+              <span className="stars">★★★★</span>★ {rating}
+            </p>
+            {price && (
+              <p className="card__text-price">{`Between ${price} per night`}</p>
             )}
           </div>
         </div>

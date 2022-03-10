@@ -1,0 +1,11 @@
+.hotelsPageContainer{
+    grid-column: 2/-2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 8rem 0;
+
+    .loading{
+        position: unset;
+    }
+}
