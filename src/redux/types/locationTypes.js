@@ -1,0 +1,2 @@
+export const SET_LOCATION_LONG = "SET_LOCATION_LONG";
+export const SET_LOCATION_LAT = "SET_LOCATION_LAT";
