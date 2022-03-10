@@ -1,21 +1,14 @@
-import React /* , { useEffect, useState } */ from "react";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import BookDestinationForm from "../../../../../component/customForms/BookDestinationForm";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CustomButton from "../../../../../component/customButtons/CustomButton";
-// import axios from "axios";
+import { scrollTo } from "../../../../../component/helper/helperFunction";
 
-function Bookings() {
-  // const [randomImages, setRandomImages] = useState([])
-
-  // useEffect(() => {
-  //   axios.get("https://picsum.photos/v2/list?page=2&limit=4").then(res => setRandomImages(res.data)).catch(err => console.log(err))  
-
-  // }, [])
-  
+function Bookings({bookingSectionRef,hotelsSectionRef}) {
 
   return (
-    <section  className="booking" >
+    <section  className="booking" ref={bookingSectionRef} >
       <div className="booking__form">
 
       <BookDestinationForm />
@@ -24,7 +17,7 @@ function Bookings() {
         <header className="booking__slides-header" >
 
         <p>Paradise on Earth</p>
-        <CustomButton type={"ORANGE"} text={"Plan a Trip"} />
+        <CustomButton type={"ORANGE"} text={"Plan a Trip"} onClick={() => scrollTo(hotelsSectionRef)} />
         </header>
       <Carousel autoFocus={true} autoPlay={true} transitionTime={"100ms"} infiniteLoop={true} showArrows={false} renderIndicator={() => false}
       showStatus={false}

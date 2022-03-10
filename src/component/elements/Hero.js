@@ -2,9 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import HomeHeroCards from "../cards/HomeHeroCards";
 import CustomButton from "../customButtons/CustomButton";
-import { checkLocation } from "../helper/helperFunction";
+import { checkLocation, scrollTo } from "../helper/helperFunction";
 
-function Hero({ type }) {
+function Hero({ type,bookingSectionRef }) {
   const location = useLocation();
   let template;
 
@@ -26,11 +26,13 @@ function Hero({ type }) {
               type="ORANGE"
               text="Plan a Trip"
               className={"hero__home--btn_left"}
-            />
+              onClick={() => scrollTo(bookingSectionRef)}
+              />
             <CustomButton
               type="TRANSPARENT"
               text="Preview"
               className={"hero__home--btn_right"}
+              onClick={() => scrollTo(bookingSectionRef)}
             />
           </div>
           <HomeHeroCards />

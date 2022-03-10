@@ -61,7 +61,7 @@ function QueryResult() {
       )
       .then((res) => dispatch(addingCorona(res.data)))
       .catch((covidError) => dispatch(errorCorona(covidError)));
-  }, [country]);
+  }, [country]);// eslint-disable-line
 
   useEffect(() => {
     axios
@@ -70,20 +70,14 @@ function QueryResult() {
       )
       .then((res) => dispatch(addingWeather(res.data)))
       .catch((err) => dispatch(errorWeather(err)));
-  }, [locationFiltered[0]?.result_object]);
+  }, [locationFiltered[0]?.result_object]);// eslint-disable-line
 
-
-
-
-
-  
 
 
 
 
   
   return (
-    // {
       coronaLoad === false && weatherLoad === false && weatherError === null && coronaError === null ?
     <>
       <SearchQueryHero query={locationFiltered[0]}/>
@@ -96,7 +90,7 @@ function QueryResult() {
           <QueryCardsContainer 
             cardTitle={"Eat"} 
             cardBody={"Can't-miss spots to dine, drink, and feast."} 
-            CardLink="/" cardArray={resturantsFiltered} cardType="NOPRICE" layoutOrientation={"HORIZONTAL"}
+            CardLink="/resturants" cardArray={resturantsFiltered} cardType="NOPRICE" layoutOrientation={"HORIZONTAL"}
           />
         }
         {
@@ -104,7 +98,7 @@ function QueryResult() {
           <QueryCardsContainer 
             cardTitle={"Stay"} 
             cardBody={"A mix of the charming, modern, and tried and true."} 
-            CardLink="/" cardArray={hotelsFiltered} cardType="PRICE" layoutOrientation={"HORIZONTAL"}
+            CardLink="/hotels" cardArray={hotelsFiltered} cardType="PRICE" layoutOrientation={"HORIZONTAL"}
           />
         }
         {
@@ -112,7 +106,7 @@ function QueryResult() {
           <QueryCardsContainer 
             cardTitle={"Do"} 
             cardBody={"Places to see, ways to wander, and signature experiences."} 
-            CardLink="/" cardArray={activitiesFiltered} cardType="PRICE" layoutOrientation={"HORIZONTAL"}
+            CardLink="/attractions" cardArray={activitiesFiltered} cardType="PRICE" layoutOrientation={"HORIZONTAL"}
           />
         }
       </section>
@@ -123,24 +117,21 @@ function QueryResult() {
           toursFiltered?.length > 0 && 
           <QueryCardsContainer 
             cardTitle={"Nature and Wildlife"} 
-            CardLink="/" cardArray={toursFiltered} cardType="PRICE" layoutOrientation={"VERTICAL"}
+            CardLink="/attractions" cardArray={toursFiltered} cardType="PRICE" layoutOrientation={"VERTICAL"}
           />
         }
         {
           rentalsFiltered?.length > 0 && 
           <QueryCardsContainer 
             cardTitle={`Popular homes in ${search.searchQuery}`} 
-            CardLink="/" cardArray={rentalsFiltered} cardType="PRICE" layoutOrientation={"VERTICAL"}
+            CardLink="/hotels" cardArray={rentalsFiltered} cardType="PRICE" layoutOrientation={"VERTICAL"}
           />
         }
       </section>
     </>
-    // }
       :
 
       <LoadingPage />
-
-    
   )
 }
 

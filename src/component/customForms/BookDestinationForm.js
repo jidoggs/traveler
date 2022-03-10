@@ -5,20 +5,22 @@ import CustomButton from "../customButtons/CustomButton";
 import "react-datepicker/dist/react-datepicker.css";
 import PlacesAutocomplete from "./component/PlacesAutocomplete";
 import usePlacesAutocomplete from "use-places-autocomplete";
-// import axios from "axios";
 import Calendar from "../customIcons/Calendar";
 import Location from "../customIcons/Location";
 import Family from "../customIcons/Family";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { inputingSearch } from "../../redux/actions/searchActions";
 
 function BookDestinationForm() {
   const initialState = {
     location: "",
     check: {
-      in: "",
-      out: "",
+      in: new Date(),
+      out: new Date(),
     },
     passangers: {
-      adult: 0,
+      adult: 1,
       children: 0,
     },
   };
@@ -26,6 +28,8 @@ function BookDestinationForm() {
   const userCountOptions = [0, 1, 2, 3, 4, 5, 6];
 
   const [booking, setBooking] = useState(initialState);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     ready,
@@ -37,34 +41,11 @@ function BookDestinationForm() {
   const handleSelect = (val) => {
     setValue(val, false);
     setBooking((prev) => ({ ...prev, location: val }));
-    // diapatch(inputingSearch(val));
-    // navigate(`/search-result`);
   };
   const handleInput = (e) => {
     setValue(e.target.value);
   };
 
-  // const [rapid, setrapid] = useState([]);
-
-  // var options = {
-  //   // method: "GET",
-  //   // url: "https://mimmofranco.herokuapp.com/https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete",
-  //   // params: { query: "eiffel tower", lang: "en_US", units: "km" },
-  //   // headers: {
-  //   //   "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-  //   //   'x-rapidapi-key': '18400156e4mshc1f3c9773a6e009p185fd6jsn26c4eddf1225'
-  //   // },
-  // };
-  // useEffect(() => {
-  //   axios
-  //     .request("options")
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.log(err));
-  // }, []);// eslint-disable-line
-
-  // const locationChangeHandler = (e) => {
-  //   setBooking((prev) => ({ ...prev, location: e.target.value }));
-  // };
   const passangerAdultChangeHadler = (e) => {
     setBooking((prev) => ({
       ...prev,
@@ -81,6 +62,13 @@ function BookDestinationForm() {
   const submitFormHandler = (e) => {
     e.preventDefault();
     console.log(booking);
+    if (booking.location.trim() !== "") {
+      dispatch(inputingSearch(booking.location));
+      navigate(`/search-result`);
+      setBooking(initialState)
+    }else{
+
+    }
   };
 
   const props = {
@@ -92,18 +80,11 @@ function BookDestinationForm() {
 
   return (
     <form
-      // style={{ padding: "3rem" }}
       onSubmit={submitFormHandler}
+      autoComplete="off"
     >
       <h2 className="formTitle">Find Your Stay</h2>
       <label htmlFor="location"></label>
-      {/* <input
-        type="text"
-        name="location"
-        id="location"
-        placeholder="where do you want to go"
-        onChange={locationChangeHandler}
-      /> */}
       <div className="searchInput">
         <Location className="formIcon" />
         <PlacesAutocomplete

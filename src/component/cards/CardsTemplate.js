@@ -10,7 +10,7 @@ function CardsTemplate({ type, title, body,price,id, bgImage }) {
   switch (type) {
     case "HOME_HERO":
       template = (
-        <div className={`hero__card hero__card-${id}`}>
+        <div className={`hero__card hero__card-${id}`} onClick={() => navigate("/hotels")} >
           <h3 className="hero__card--title">{title}</h3>
           <p className="hero__card--body">{body}</p>
           <p className="hero__card--price">{price}</p>
