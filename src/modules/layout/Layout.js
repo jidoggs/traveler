@@ -20,7 +20,7 @@ function Layout() {
   
   
   useEffect(() => {
-    if(pathname === "/"){
+    if(pathname === "/" || pathname === "/search-result"){
       window.addEventListener("scroll", changeHeaderBg);
     }
 

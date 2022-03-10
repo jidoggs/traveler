@@ -1,8 +1,6 @@
 import React, {  useState } from "react";
 import { NavLink } from "react-router-dom";
 import SearchBar from "../../../component/customForms/SearchBar";
-// import SearchLocationInput from "../../../component/customForms/PlacesAutoComplete";
-// import SearchBar from "../../../component/customForms/SearchBar";
 import Logo from "../../../component/customIcons/Logo";
 
 function Header({ className }) {
@@ -28,9 +26,6 @@ function Header({ className }) {
         >
           <li className="header__navigation--link_item">
             <NavLink to={"/attractions"}>Attractions</NavLink>
-          </li>
-          <li className="header__navigation--link_item">
-            <NavLink to={"/cars"}>Car Rentals</NavLink>
           </li>
           <li className="header__navigation--link_item">
             <NavLink to={"/hotels"}>Hotels</NavLink>
