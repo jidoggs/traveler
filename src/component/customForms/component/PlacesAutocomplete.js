@@ -16,7 +16,9 @@ const PlacesAutocomplete = ({handleInput,handleSelect, ready, value, status, dat
       <ComboboxPopover style={{zIndex: 3,}}>
         <ComboboxList >
           {status === "OK" &&
-            data.map(({ place_id, description }) => (
+
+            data.filter((newData) => newData?.types?.includes("locality"))
+            .map(({ place_id, description }) => (
               <ComboboxOption key={place_id} value={description} />
             ))}
         </ComboboxList>
