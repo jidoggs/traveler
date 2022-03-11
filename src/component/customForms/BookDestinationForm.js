@@ -61,7 +61,6 @@ function BookDestinationForm() {
 
   const submitFormHandler = (e) => {
     e.preventDefault();
-    console.log(booking);
     if (booking.location.trim() !== "") {
       dispatch(inputingSearch(booking.location));
       navigate(`/search-result`);

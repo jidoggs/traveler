@@ -12,6 +12,10 @@
     background-blend-mode: multiply;
     position: relative;
 
+    @media screen and (max-width: 528px) {
+      grid-template-columns: 1rem 12fr 1rem;
+  }
+
     &--headline {
       grid-row: 2/3;
       grid-column: 2/10;
@@ -36,6 +40,11 @@
     grid-template-columns: 50px max-content;
     padding-right: 1rem;
     background-color: #fff;
+    @media screen and (max-width: 1280px) {
+      display: flex;
+      padding-top: 50px;
+      padding-left: 50px;
+    }
 
     &--container {
       grid-column: 2/3;
@@ -43,6 +52,15 @@
       grid-template-columns: repeat(3, 1fr);
       column-gap: 2.5rem;
       grid-template-rows: 46px max-content 46px;
+
+      @media screen and (max-width: 1280px) {
+        display: flex;
+        overflow-x: scroll;
+        padding-bottom: 46px;
+        .hero__card{
+          flex: 1;
+        }
+      }
     }
   }
   

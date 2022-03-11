@@ -33,17 +33,29 @@
 }
 
 .booking {
-  padding: 5.5rem 0;
+  padding: 5.5rem 50px;
 
   background-color: #fff;
   display: flex;
   column-gap: 1.5rem;
 
+  @media screen and (max-width: 1120px) {
+    flex-direction: column-reverse;
+    padding: 5.5rem 50px;
+  }
+  @media screen and (max-width: 528px) {
+    padding: 5.5rem 1rem;
+  }
+  
   &__form {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    @media screen and (max-width: 1120px) {
+      flex-direction: column-reverse;
+      padding: 5.5rem 0;
+    }
     form {
       padding: 36px 22px 48px 32px;
       border-radius: 8px;
@@ -139,6 +151,9 @@
     background-color: #fff;
     display: grid;
     grid-template-columns: 3.5rem 1fr 3.5rem;
+    @media screen and (max-width: 528px) {
+      grid-template-columns: 1rem 1fr 1rem;
+  }
     header{
         grid-column: 2/3;
         grid-row: 1/2;
@@ -150,6 +165,12 @@
         justify-content: space-between;
         column-gap: 1.5rem;
         margin-top: 1rem;
+
+        @media screen and (max-width: 924px) {
+          flex-direction: column;
+          row-gap: 1.5rem;
+        }
+
         div{
           flex: 1;
           background-size: cover;

@@ -4,7 +4,7 @@ import SearchBar from "../../../component/customForms/SearchBar";
 import Logo from "../../../component/customIcons/Logo";
 
 function Header({ className }) {
-  const [hideNav, setHideNav] = useState(true);
+  const [hideNav, setHideNav] = useState(false);
 
   const toggleSideNav = () => {
     setHideNav(!hideNav);
@@ -14,15 +14,13 @@ function Header({ className }) {
     <header  className={` ${className}`}>
       <div className="header" >
       <Logo className={"header__logo "} />
-      <nav className="header__navigation">
         <span
           className={`hambuger ${!hideNav ? "showSideNav" : ""} grow `}
           onClick={toggleSideNav}
         ></span>
+      <nav className={`header__navigation ${hideNav? "showNav": ""}`}>
         <ul
-          className={`header__navigation--link absolute right-12 top-14 ${
-            hideNav ? "hidden" : ""
-          }  `}
+          className={`header__navigation--link absolute right-12 top-14`}
         >
           <li className="header__navigation--link_item">
             <NavLink to={"/attractions"}>Attractions</NavLink>
