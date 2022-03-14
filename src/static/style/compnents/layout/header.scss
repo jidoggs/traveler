@@ -5,7 +5,7 @@
   position: relative;
   @media screen and (max-width: 528px) {
     grid-template-columns: 1rem 12fr 1rem;
-}
+  }
   a {
     color: #fff;
   }
@@ -15,15 +15,22 @@
     path {
       fill: #fff;
     }
+    @media screen and (max-width: 528px) {
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
   }
   .hambuger{
-
     @media screen and (max-width: 1024px) {
       display: block;
       grid-column: 5/-2;
       align-self: center;
       justify-self: flex-end;
       z-index: 5;
+    }
+    @media screen and (max-width: 528px) {
+      grid-column: 2/3;
+      grid-row: 1/2;
     }
   }
   &__navigation {

@@ -27,10 +27,29 @@
 
 .hambuger {
   display: block;
-  width: 1.125rem;
-  height: 1.125rem;
-  background-color: red;
+  width: 2rem;
+  height: .5rem;
+  background-color: white;
+  position: relative;
+  
   display: none;
+  
+  &::before,
+  &::after{
+    background-color: white;
+    width: 2rem;
+    height: .5rem;
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  &::before{
+    top: 1rem;
+  }
+  &::after{
+    top: -1rem;
+  }
 }
 .stars{
   color: gold;

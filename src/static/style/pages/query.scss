@@ -57,6 +57,10 @@
   overflow: hidden;
   padding: 2rem 0;
 
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
   &__text {
     display: flex;
     align-items: flex-start;
