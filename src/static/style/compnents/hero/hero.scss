@@ -14,6 +14,7 @@
 
     @media screen and (max-width: 528px) {
       grid-template-columns: 1rem 12fr 1rem;
+      column-gap: 0;
   }
 
     &--headline {
@@ -21,6 +22,9 @@
       grid-column: 2/10;
       @media screen and (max-width: 1240px) {
           grid-column: 2/-2;
+      }
+      @media screen and (max-width: 460px) {
+          font-size: 56px;
       }
     }
     &--subtext {
