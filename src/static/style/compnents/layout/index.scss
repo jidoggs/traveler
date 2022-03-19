@@ -30,6 +30,9 @@
         &--restaurants,
         &--hotels{
             grid-template-columns: 50px 12fr 50px;
+            .loading{
+                grid-column: 1/-1;
+            }
         }
     }
     &__footer{
