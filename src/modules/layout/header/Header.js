@@ -32,7 +32,7 @@ function Header({ className }) {
             <NavLink to={"/restaurants"}>Restaurants</NavLink>
           </li>
         </ul>
-        <SearchBar/>
+        <SearchBar toggleSideNav={toggleSideNav}/>
       </nav>
       </div>
     </header>

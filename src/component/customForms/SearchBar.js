@@ -9,7 +9,7 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 import { coronaDefault, weatherDefault } from "../../redux/actions/queryActions";
 
-function SearchBar() {
+function SearchBar({toggleSideNav}) {
   const props = {
     className: "search",
     type: "search",
@@ -32,6 +32,7 @@ function SearchBar() {
 
   const handleSelect = (val) => {
     setValue(val, false);
+    toggleSideNav()
     if (pathname === "/search-result" && state?.searchQuery === val) {
       setValue("");
       return;
