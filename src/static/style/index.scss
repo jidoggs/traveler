@@ -73,17 +73,19 @@
 }
 .loading{
   height: 100vh;
-  background-color: #f56e1e;
-  position: relative;
+  background-color: #000;
   .textContainer{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   p{
-    font-size: 3em;
+    color: antiquewhite;
   }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .plane{
     position: absolute;
