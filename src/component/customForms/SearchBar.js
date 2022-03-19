@@ -1,8 +1,8 @@
 import React from "react";
 import PlacesAutocomplete from "./component/PlacesAutocomplete";
 import usePlacesAutocomplete from "use-places-autocomplete";
-import { useDispatch } from "react-redux";
-import { inputingSearch } from "../../redux/actions/searchActions";
+import { useDispatch, useSelector } from "react-redux";
+import { clearingSearchResult, inputingSearch } from "../../redux/actions/searchActions";
 import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
@@ -14,8 +14,11 @@ function SearchBar() {
     placeholder: "Search the World . . . ",
   };
 
-  const diapatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const result = useSelector(state => state.searchReducer.searchResult)
+
+  // console.log(result)
 
   const {
     ready,
@@ -26,7 +29,10 @@ function SearchBar() {
 
   const handleSelect = (val) => {
     setValue(val, false);
-    diapatch(inputingSearch(val));
+    if (result?.length > 0) {
+      dispatch(clearingSearchResult())
+    }
+    dispatch(inputingSearch(val));
     navigate(`/search-result`);
     setValue("");
   };
@@ -34,8 +40,12 @@ function SearchBar() {
     setValue(e.target.value);
   };
 
+  const onSubmitHandler = (e) => { 
+    console.log(e)
+   }
+
   return (
-    <form className="header__navigation--search header__searchBox searchBox" autoComplete="off">
+    <form onSubmit={onSubmitHandler} className="header__navigation--search header__searchBox searchBox" autoComplete="off">
       <label htmlFor="travelerSearch"></label>
       <PlacesAutocomplete
         moreProps={props}

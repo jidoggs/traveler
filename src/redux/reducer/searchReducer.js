@@ -15,7 +15,7 @@ export default function searchReducer (state = initialState, { type, payload }) 
   case SEARCH_QUERY:
     return { ...state, searchResult: payload }
   case CLEAR_QUERY:
-    return { ...state, searchResult: [] }
+    return initialState
 
   default:
     return state

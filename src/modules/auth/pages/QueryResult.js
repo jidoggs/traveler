@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import QueryCardsContainer from '../../../component/elements/QueryCardsContainer'
 import SearchQueryHero from '../../../component/elements/SearchQueryHero'
 import { addingCorona, addingWeather, errorCorona, errorWeather } from '../../../redux/actions/queryActions'
@@ -14,6 +15,14 @@ function QueryResult() {
     const coronaError = useSelector(state => state.queryHeroReducer.corona.error)
     const weatherLoad = useSelector(state => state.queryHeroReducer.weather.isLoading)
     const weatherError = useSelector(state => state.queryHeroReducer.weather.error)
+
+    const navigate = useNavigate()
+
+    useEffect(() => { 
+      if(search.searchQuery === "" && search.searchResult.length === 0){
+        navigate("/")
+      }
+    },[])
 
    
 
@@ -70,7 +79,7 @@ function QueryResult() {
       )
       .then((res) => dispatch(addingWeather(res.data)))
       .catch((err) => dispatch(errorWeather(err)));
-  }, [locationFiltered[0]?.result_object]);// eslint-disable-line
+  }, [locationFiltered[0]?.result_object?.longitude,locationFiltered[0]?.result_object?.latitude]);// eslint-disable-line
 
 
 
