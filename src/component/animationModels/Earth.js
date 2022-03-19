@@ -1,4 +1,4 @@
-import React, {  useRef } from "react";
+import React, {  useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
@@ -6,9 +6,14 @@ export default function EarthModel({ ...props }) {
   const group = useRef();
   const bodyMesh = useRef();
   const { nodes, materials, animations } = useGLTF("/earth.gltf");
-  const gold = useGLTF("/earth.gltf");
   const { actions } = useAnimations(animations, group);
 
+  useEffect(() => {
+    console.log(actions)
+    return () => { 
+      console.clear(actions)
+    }
+  }, [actions])
  
 
   useFrame(() => (group.current.rotation.x = group.current.rotation.y += 0.001));

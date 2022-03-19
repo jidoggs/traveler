@@ -2,6 +2,7 @@ export const CORONA_INPUT = "CORONA_INPUT";
 export const CORONA_ERROR = "CORONA_ERROR";
 export const WEATHER_INPUT = "WEATHER_INPUT";
 export const WEATHER_ERROR = "WEATHER_ERROR";
-
+export const RESET_WEATHER = "RESET_WEATHER";
+export const RESET_CORONA = "RESET_CORONA";
 
 

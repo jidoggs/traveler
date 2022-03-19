@@ -1,4 +1,4 @@
-import { CORONA_ERROR, CORONA_INPUT, WEATHER_ERROR, WEATHER_INPUT } from "../types/queryTypes"
+import { CORONA_ERROR, CORONA_INPUT, RESET_CORONA, RESET_WEATHER, WEATHER_ERROR, WEATHER_INPUT } from "../types/queryTypes"
 
 const initialState = {
     corona: {
@@ -40,6 +40,10 @@ export default function queryHeroReducer (state = initialState, { type, payload 
         data: {},
         error: payload
     } }
+  case RESET_WEATHER:
+    return initialState.weather
+  case RESET_CORONA:
+    return initialState.corona
 
   default:
     return state

@@ -2,8 +2,12 @@ import React from "react";
 import PlacesAutocomplete from "./component/PlacesAutocomplete";
 import usePlacesAutocomplete from "use-places-autocomplete";
 import { useDispatch, useSelector } from "react-redux";
-import { clearingSearchResult, inputingSearch } from "../../redux/actions/searchActions";
-import { useNavigate } from "react-router-dom";
+import {
+  clearingSearchResult,
+  inputingSearch,
+} from "../../redux/actions/searchActions";
+import { useNavigate, useLocation } from "react-router-dom";
+import { coronaDefault, weatherDefault } from "../../redux/actions/queryActions";
 
 function SearchBar() {
   const props = {
@@ -16,9 +20,8 @@ function SearchBar() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const result = useSelector(state => state.searchReducer.searchResult)
-
-  // console.log(result)
+  const state = useSelector((state) => state.searchReducer);
+  const { pathname } = useLocation();
 
   const {
     ready,
@@ -29,8 +32,14 @@ function SearchBar() {
 
   const handleSelect = (val) => {
     setValue(val, false);
-    if (result?.length > 0) {
-      dispatch(clearingSearchResult())
+    if (pathname === "/search-result" && state?.searchQuery === val) {
+      setValue("");
+      return;
+    }
+    if ( pathname === "/search-result" && state?.searchResult?.length > 0) {
+      dispatch(clearingSearchResult());
+      dispatch(weatherDefault())
+      dispatch(coronaDefault())
     }
     dispatch(inputingSearch(val));
     navigate(`/search-result`);
@@ -40,12 +49,16 @@ function SearchBar() {
     setValue(e.target.value);
   };
 
-  const onSubmitHandler = (e) => { 
-    console.log(e)
-   }
+  const onSubmitHandler = (e) => {
+    console.log(e);
+  };
 
   return (
-    <form onSubmit={onSubmitHandler} className="header__navigation--search header__searchBox searchBox" autoComplete="off">
+    <form
+      onSubmit={onSubmitHandler}
+      className="header__navigation--search header__searchBox searchBox"
+      autoComplete="off"
+    >
       <label htmlFor="travelerSearch"></label>
       <PlacesAutocomplete
         moreProps={props}
