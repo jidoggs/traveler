@@ -1,4 +1,4 @@
-# Project Title
+# Traveler
 
 Stutern milestone project to build a Travel application
 
