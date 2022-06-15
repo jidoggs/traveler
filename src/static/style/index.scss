@@ -26,29 +26,30 @@
 @import "./pages/hotels.scss";
 
 .hambuger {
-  display: block;
-  width: 2rem;
-  height: .5rem;
-  background-color: white;
+  // display: block;
+
   position: relative;
   
   display: none;
-  
+  &,
   &::before,
   &::after{
-    background-color: white;
-    width: 2rem;
-    height: .5rem;
+  background-color: white;
+  width: 2rem;
+  height: .32rem;
+  }
+  &::before,
+  &::after{
     content: "";
     position: absolute;
     left: 0;
   }
 
   &::before{
-    top: 1rem;
+    top: 0.8rem;
   }
   &::after{
-    top: -1rem;
+    top: -0.8rem;
   }
 }
 .stars{

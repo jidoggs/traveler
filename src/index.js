@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
+document.title = "Traveler"
+
 
 ReactDOM.render(
   <React.StrictMode>

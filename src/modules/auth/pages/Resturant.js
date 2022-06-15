@@ -55,18 +55,20 @@ function Resturant() {
     <>
       {data?.length > 0 && loading === false && error === null ? (
         <div className="hotelsPageContainer">
-          {data?.map((food, index) => {
-            return (
-              <QueryCardTemplate
-                key={index}
-                bkImg={food?.photo?.images?.large?.url}
-                title={food?.name}
-                rating={food?.rating}
-                cuisine={food?.cuisine}
-                type="NOPRICE"
-              />
-            );
-          })}
+          {data
+            ?.filter((food) => food?.photo?.images?.large?.url)
+            .map((food, index) => {
+              return (
+                <QueryCardTemplate
+                  key={index}
+                  bkImg={food?.photo?.images?.large?.url}
+                  title={food?.name}
+                  rating={food?.rating}
+                  cuisine={food?.cuisine}
+                  type="NOPRICE"
+                />
+              );
+            })}
         </div>
       ) : (
         <LoadingPage />

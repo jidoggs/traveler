@@ -46,18 +46,20 @@ function Hotel() {
     <>
       {data?.length > 0 && loading === false && error == null ? (
         <div className="hotelsPageContainer">
-          {data?.map((hotel, index) => {
-            return (
-              <QueryCardTemplate
-                key={index}
-                bkImg={hotel?.photo?.images?.large?.url}
-                title={hotel?.name}
-                rating={hotel?.hotel_class}
-                price={hotel?.price}
-                type="HOTELWITHPRICE"
-              />
-            );
-          })}
+          {data
+            ?.filter((hotel) => hotel?.photo?.images?.large?.url)
+            .map((hotel, index) => {
+              return (
+                <QueryCardTemplate
+                  key={index}
+                  bkImg={hotel?.photo?.images?.large?.url}
+                  title={hotel?.name}
+                  rating={hotel?.hotel_class}
+                  price={hotel?.price}
+                  type="HOTELWITHPRICE"
+                />
+              );
+            })}
         </div>
       ) : (
         <LoadingPage />
